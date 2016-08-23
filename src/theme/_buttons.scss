@@ -1,14 +1,51 @@
-$btn-inverse-bg: transparent !default;
-$btn-inverse-color: White !default;
-$btn-inverse-border: transparent !default;
+//
+// Buttons
+// --------------------------------------------------
 
-$btn-add-bg: #bad104 !default;
-$btn-add-color: White !default;
-$btn-add-border: darken($btn-add-bg, 5%) !default;
+$btn-box-shadow-color: 20 !default;
+$btn-box-shadow-width: 3px !default;
 
-.btn-inverse {
-  @include button-variant($btn-inverse-color, $btn-inverse-bg, $btn-inverse-border);
+/// Set box shadow to a button
+/// @access public
+/// @param {Color} $border-bottom-color - color to shade
+@mixin btn-box-shadow($btn-bg: $btn-default-bg) {
+  box-shadow: 0 -1*($btn-box-shadow-width) 0 shade($btn-bg, $btn-box-shadow-color) inset;
 }
-.btn-add {
-  @include button-variant($btn-add-color, $btn-add-bg, $btn-add-border);
+
+.btn {
+  @include btn-box-shadow;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+
+  &-primary,
+  &-success,
+  &-info,
+  &-warning,
+  &-danger {
+    border: 0;
+  }
+
+  &-primary {
+    @include btn-box-shadow($btn-primary-bg);
+  }
+
+  &-success {
+    @include btn-box-shadow($btn-success-bg);
+  }
+
+  &-info {
+    @include btn-box-shadow($btn-info-bg);
+  }
+
+  &-warning {
+    @include btn-box-shadow($btn-warning-bg);
+  }
+
+  &-danger {
+    @include btn-box-shadow($btn-danger-bg);
+  }
+
+  &-link {
+    box-shadow: none;
+  }
 }
