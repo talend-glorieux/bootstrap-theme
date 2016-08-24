@@ -2,14 +2,14 @@
 // Buttons
 // --------------------------------------------------
 
-$btn-box-shadow-color: 20 !default;
-$btn-box-shadow-width: 3px !default;
+$btn-box-shadow-width:          3px !default;
+$btn-box-shadow-shade-percent:  20 !default;
 
 /// Set box shadow to a button
 /// @access public
 /// @param {Color} $border-bottom-color - color to shade
 @mixin btn-box-shadow($btn-bg: $btn-default-bg) {
-  box-shadow: 0 -1*($btn-box-shadow-width) 0 shade($btn-bg, $btn-box-shadow-color) inset;
+  box-shadow: 0 -1*($btn-box-shadow-width) 0 shade($btn-bg, $btn-box-shadow-shade-percent) inset;
 }
 
 .btn {
